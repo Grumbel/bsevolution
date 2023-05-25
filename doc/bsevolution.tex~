@@ -1,0 +1,61 @@
+\documentclass[a4paper]{article}
+\usepackage{epsfig}
+\usepackage{german}
+
+\title{BSEvolution}
+\author{Ingo Ruhnke grumbel@gmx.de}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\section{Was ist BSEvolution?}
+
+BSEvolution ist ein einfaches GUI gesteuertes Programm zur Simulation
+der Evolution zweier hypothetischer Lebewesen, n"amlich des
+Biegosaurus und der Stachelophyte.
+
+\section{Die Evolution}
+\subsection{Der Biegosaurus und die Stachelophyte}
+
+Der Biegosaurus ist pflanzenfressender Dinosaurier mit einem langem,
+aber unbeweglichen, um 90 Grad abgewinkelten Hals.  Seine bevorzugte
+Pflanze ist die Stachelophyte. Seine existens wird durch lediglich
+zwei Gene bestimmt, eines ist f"ur die H"ohe des Halses, das andere
+f"ur die Breite.
+ 
+Die Stachelophyte ist eine hohe, palmenartige Pflanze mit
+wohlschmeckende gr"une Blattern.  Zum Schutz vor Fressfeinden hat sie
+am Boden lange giftige Stacheln entwickelt. Auch die Stachelophyte
+besitzt nur zwei Gene, eines ist f"ur die H"ohe des Stammes zu
+st"andig, das andere f"ur die L"ange der Stacheln.
+
+
+\subsection{Wie geschieht die Evolution?}
+
+Die Evolution geschieht wie "ublich zuf"allig. Pro Evolutions Schritt
+werden jeweils zwei neue Lebewesen erzeugt, die um je eine H"ohen oder
+Breiten Einheit von dem Ursprungstier abweichen k"onnen. Es "uberlebt
+dann der Biegosaurus der am n"achsten an der gr"unen Bl"attern der
+Stachelophyte dran ist, bzw. die Stachelophyte die am meisten vom
+Biegosaurus entfernt ist. Wenn die Gesamtl"ange, also Breite plus
+H"ohe, einen festgelegten Wert "uberschreitet wird noch ein
+,,Strafwert'' auf den Abstand addiert, so das die Lebewesen nicht
+"uber diesen hinauswachsen.
+
+
+\section{Die Simulation}
+
+BSEvolution bietet die M"oglichkeit die beschriebene Evolution zu
+simulieren und zu visualisieren.
+\\
+\includegraphics[height=80mm]{bsevolution_gui.ps}
+\\
+aeuaoeu oe oaeu oaeu
+\\
+oeu
+
+\end{document}
+
+%% EOF %%

@@ -1,0 +1,15 @@
+BSEvolution - Installation
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To compile BSEvolution you need the Sun's non-free Java compiler
+version 1.2 or above, for example you can get that from
+http://www.blackdown.org. BSEvolution hasn't been tested which other
+compilers or other versions of Sun's compiler so it might for work
+not, try yourself.
+
+When you have the compiler installed, all you need is to type "make",
+this will compile all the classes. To start BSEvolution on a Unix
+system, just type "./bsevolution", to start it on non Unix systems you
+have to start the class "Main", look at your Java Runtime docs for
+details.
+
