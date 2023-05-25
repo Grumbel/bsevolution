@@ -1,7 +1,7 @@
 BSEvolution
-~~~~~~~~~~~
+===========
 
-BSEvolution is a toy like programm to simulate the hypothetical
+BSEvolution is a toy like program to simulate the hypothetical
 evolution of a biegosaurus and a stachelophyte.
 
 A biegosaurus is an dinosaur with a long neck at an angle of 90
@@ -12,3 +12,5 @@ The source code of the programm is maybe interessting for educational
 purpose or as example of a simple java application. It doesn't have
 any real use.
 
+
+![Screenshot](doc/bsevolution_gui.png)
