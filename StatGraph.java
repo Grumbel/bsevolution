@@ -146,10 +146,10 @@ class StatGraphCanvas
 		steps = 0;
 	    }
 
-	biego_widths.add (new Integer(Main.main.get_world ().get_biego ().get_width ()));
-	biego_heights.add (new Integer(Main.main.get_world ().get_biego ().get_height ()));
-	stachelo_widths.add (new Integer(Main.main.get_world ().get_stachelo ().get_width ()));
-	stachelo_heights.add (new Integer(Main.main.get_world ().get_stachelo ().get_height ()));
+	biego_widths.add (Main.main.get_world ().get_biego ().get_width ());
+	biego_heights.add (Main.main.get_world ().get_biego ().get_height ());
+	stachelo_widths.add (Main.main.get_world ().get_stachelo ().get_width ());
+	stachelo_heights.add (Main.main.get_world ().get_stachelo ().get_height ());
 
 	if (repaint_steps++ >= refresh_rate)
 	    {
