@@ -24,7 +24,7 @@ public class DoubleBuffer
 	//Don't wait for garbage collection
 	if (offscreen!=null)
 	{
-	    offscreen.getGraphics().finalize();
+            // offscreen.getGraphics().finalize();
 	    offscreen=null;
 	    System.gc();
 	}
