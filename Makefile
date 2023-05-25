@@ -7,7 +7,7 @@ distname = "bsevolution-`date +\"%m%d%Y\"`"
 all: $(objects)
 	javac $(objects)
 
-dist: 
+dist:
 	mkdir -p $(distname)
 	mkdir -p $(distname)/images/
 	mkdir -p $(distname)/doc/

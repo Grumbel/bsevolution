@@ -16,7 +16,7 @@
 //    along with this program; if not, write to the Free Software
 //    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
-import java.awt.*; 
+import java.awt.*;
 
 /** This class represents an animal or plant in the World. An creature
     contains only width and height and some members to duplicate
@@ -34,7 +34,7 @@ abstract class Creature
 	this.width = width;
 	this.height  = height;
     }
-    
+
     public int get_width() {
 	return width;
     }

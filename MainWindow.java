@@ -16,17 +16,17 @@
 //    along with this program; if not, write to the Free Software
 //    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
-import java.awt.*; 
-import java.awt.color.*; 
-import java.awt.event.*; 
+import java.awt.*;
+import java.awt.color.*;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.*;
 
 /** The main window of the application */
 class MainWindow
-    implements KeyListener, 
+    implements KeyListener,
 	       //ItemListener,
-	       ActionListener, 
+	       ActionListener,
 	       WindowListener
 {
     //private Label status;
@@ -48,13 +48,13 @@ class MainWindow
     private Button step_button;
 
     public StatGraphCanvas statgraph;
-           
+
     public Checkbox get_statgraph_checkbox ()
     {
 	return stat_graph_checkbox;
     }
     /*
-    public void itemStateChanged(ItemEvent e) 
+    public void itemStateChanged(ItemEvent e)
     {
 	if (e.getStateChange() == 1)
 	    Main.main.stat_graph.setVisible (true);
@@ -82,8 +82,8 @@ class MainWindow
 	    startstop_button.setLabel ("Start");
 	    //status.setText ("Status: gestoppt");
 	    Main.main.stop_world ();
-	    Main.main.redisplay (); 
-	} 
+	    Main.main.redisplay ();
+	}
     }
 
     public void setVisible (boolean show)
@@ -107,7 +107,7 @@ class MainWindow
 	frame.addWindowListener(this);
 	frame.setTitle ("BSEvolution");
 
-	statgraph = new StatGraphCanvas (145, 250); 
+	statgraph = new StatGraphCanvas (145, 250);
 
 	right_panel.setLayout(new BorderLayout());
 	right_panel.add ("North", button_panel);
@@ -123,7 +123,7 @@ class MainWindow
 	value_display = new ValueDisplay ();
 	frame.add ("South", value_display);
 	frame.add ("East", right_panel);
-	
+
 	// Buttons
 	//status         = new Label ("Status: gestoppt");
 	restart_button = new Button ("Startwerte...");
@@ -153,7 +153,7 @@ class MainWindow
 	refresh_rate.addAdjustmentListener (new RefreshRateListener ());
 	button_panel.add (refresh_rate_label);
 	button_panel.add (refresh_rate);
-    
+
 	//stat_graph_checkbox = new Checkbox ("Show Graph", false);
 	//stat_graph_checkbox.addItemListener (this);
 	//button_panel.add (stat_graph_checkbox);
@@ -165,13 +165,13 @@ class MainWindow
 	frame.setSize (660, 505);
     }
 
-    public void update_canvas() 
+    public void update_canvas()
     {
 	//System.out.println ("updateing canvas");
 	canvas.repaint();
     }
-    
-    public void update_value_display() 
+
+    public void update_value_display()
     {
 	value_display.update ();
 	evo_steps.setText ("Schritte: " + Main.main.get_evo_steps ());
@@ -198,38 +198,38 @@ class MainWindow
 
     public void keyReleased (KeyEvent e) {
     }
-    
+
     public void keyTyped(KeyEvent e) {
     }
 
     public void windowActivated(WindowEvent e)
     {
     }
-    
+
     public void windowClosed(WindowEvent e)
     {
 	//System.out.println ("window ... closed");
     }
-    
+
     public void windowClosing(WindowEvent e)
     {
 	//System.out.println ("window ... closing");
 	System.exit (0);
     }
-    
+
     public void windowDeactivated(WindowEvent e)
     {
     }
-    
+
     public void windowDeiconified(WindowEvent e)
     {
     }
-    
+
     public void windowIconified(WindowEvent e)
     {
     }
-    
-    public void windowOpened(WindowEvent e) 
+
+    public void windowOpened(WindowEvent e)
     {
 	//	System.out.println ("window ... opened");
     }
@@ -237,7 +237,7 @@ class MainWindow
 
 
 /** This canvas displays the data of the world class in a nice way */
-class WorldDisplay 
+class WorldDisplay
     extends DoubleBufferedCanvas
     implements ImageObserver
 {
@@ -261,7 +261,7 @@ class WorldDisplay
 
     Image background;
 
-    public WorldDisplay (int w, int h) 
+    public WorldDisplay (int w, int h)
     {
 	super (w, h);
 	hals_v      = Toolkit.getDefaultToolkit().createImage ("images/hals_v.gif");
@@ -283,34 +283,34 @@ class WorldDisplay
 
 	this.prepareImage(hals_v, this);
 	this.prepareImage(hals_h, this);
-	this.prepareImage(kopf, this);    
-	this.prepareImage(kopfeat, this); 
-	this.prepareImage(baum, this);    
-	this.prepareImage(green, this);   
+	this.prepareImage(kopf, this);
+	this.prepareImage(kopfeat, this);
+	this.prepareImage(baum, this);
+	this.prepareImage(green, this);
 	this.prepareImage(greeneat, this);
 	this.prepareImage(stacheln, this);
 	this.prepareImage(stachelo_shadow, this);
-	this.prepareImage(winkel, this);     
-	this.prepareImage(biego, this);      
-	this.prepareImage(schwanz, this);    
+	this.prepareImage(winkel, this);
+	this.prepareImage(biego, this);
+	this.prepareImage(schwanz, this);
 	this.prepareImage(schwanzende, this);
-	this.prepareImage(biego, this);      
+	this.prepareImage(biego, this);
 	this.prepareImage(biego_shadow, this);
-	this.prepareImage(background, this); 
+	this.prepareImage(background, this);
     }
 
     /** Paint the world */
-    public void buffered_paint (Graphics canvas) 
+    public void buffered_paint (Graphics canvas)
     {
 	canvas.drawImage (background, 0,0, this);
 
 	// We calculate of much space we need between the two
 	// creatures to look good
 	int distance = Math.max(Main.main.get_world ().get_stachelo ().get_width (),
-				Main.main.get_world ().get_biego ().get_width ());	
+				Main.main.get_world ().get_biego ().get_width ());
 
-	paint_stachelo (canvas, 170 - distance/2, 425, 
-			Main.main.get_world ().get_stachelo ().get_width (), 
+	paint_stachelo (canvas, 170 - distance/2, 425,
+			Main.main.get_world ().get_stachelo ().get_width (),
 			Main.main.get_world ().get_stachelo ().get_height ());
 
 	paint_biego (canvas, 305 + distance/2, 430 - 162,
@@ -319,9 +319,9 @@ class WorldDisplay
     }
 
     /** Paint the stachelo image to the given Graphics object */
-    public void paint_stachelo (Graphics canvas, 
+    public void paint_stachelo (Graphics canvas,
 				int x_pos, int y_pos,
-				int width, int height) 
+				int width, int height)
     {
 	//width = (int) (Math.random () *  200) + 40;
 	//height = (int) (Math.random () * 200) + 50;
@@ -334,7 +334,7 @@ class WorldDisplay
 	canvas.drawImage (stachelo_shadow, x_pos - 125, y_pos - 20, this);
 
 	int num_tiles = (int)((height / 42.0) + 1.0);
-	float tile_height = (float) height / num_tiles + 1;	
+	float tile_height = (float) height / num_tiles + 1;
 
 	for (int i = 1; i <= num_tiles; i++)
 	    canvas.drawImage (baum, x_pos,y_pos - (int) (i * tile_height),
@@ -342,7 +342,7 @@ class WorldDisplay
 			      this);
 
 	if (Main.main.get_world ().get_stachelo_eaten ())
-	    canvas.drawImage (greeneat, x_pos - 32, y_pos - 30 - height, this);	    
+	    canvas.drawImage (greeneat, x_pos - 32, y_pos - 30 - height, this);
 	else
 	    canvas.drawImage (green, x_pos - 32, y_pos - 30 - height, this);
 
@@ -353,9 +353,9 @@ class WorldDisplay
     }
 
     /** Paint the biego image to the given Graphics object */
-    public void paint_biego (Graphics canvas, 
+    public void paint_biego (Graphics canvas,
 			     int x_pos, int y_pos,
-			     int width, int height) 
+			     int width, int height)
     {
 	// We add a bit to the real width/height to avoid ugly tiles
 	width  += 20;
@@ -367,10 +367,10 @@ class WorldDisplay
 
 	int num_tiles = (int)((width / 50.0) + 1.0);
 	float tile_width = (float) width / num_tiles + 1;
-	for (int i = 0; i < num_tiles ; i++)	
+	for (int i = 0; i < num_tiles ; i++)
 	    canvas.drawImage (schwanz,
 			      x_pos + 126 + (int) (i*tile_width),
-			      y_pos + 137, 
+			      y_pos + 137,
 			      (int) tile_width + 1, 22,
 			      this);
 
@@ -384,8 +384,8 @@ class WorldDisplay
 	float tile_height = (float) height / num_tiles + 1;
 
 	for (int i = 1; i <= num_tiles ; i++)
-	    canvas.drawImage (hals_v, 
-			      x_pos, 
+	    canvas.drawImage (hals_v,
+			      x_pos,
 			      y_pos - (int)(tile_height * i),
 			      28, (int) tile_height + 1,
 			      this);
@@ -409,10 +409,10 @@ class WorldDisplay
 			      this);
 
 	if (Main.main.get_world ().get_stachelo_eaten ())
-	    canvas.drawImage (kopfeat, x_pos - width - 62, 
+	    canvas.drawImage (kopfeat, x_pos - width - 62,
 			      y_pos - height - 36, this);
 	else
-	    canvas.drawImage (kopf, x_pos - width - 62, 
+	    canvas.drawImage (kopf, x_pos - width - 62,
 			      y_pos - height - 36, this);
     }
 
@@ -431,15 +431,15 @@ class WorldDisplay
 		this.repaint ();
 		return false;
 	    }
-	*/	
+	*/
 	return true;
-    }    
-}    
+    }
+}
 
 /** A panel at the bottom of the main window, which displays the
     current height and width of the creatures */
-class ValueDisplay 
-    extends Panel 
+class ValueDisplay
+    extends Panel
 {
     Label biego;
     Label stachelo;
@@ -449,12 +449,12 @@ class ValueDisplay
     Label biego_width;
     Label biego_max;
     Label stachelo_height;
-    Label stachelo_width;        
+    Label stachelo_width;
     Label stachelo_max;
-    Label max;        
+    Label max;
     Label label;
 
-    ValueDisplay () 
+    ValueDisplay ()
     {
 	label = new Label ("Maße\\Art",  Label.CENTER);
 	biego    = new Label ("Biego",  Label.CENTER);
@@ -504,9 +504,9 @@ class ValueDisplay
 	add (stachelo_height);
 	add (stachelo_max);
     }
-    
+
     /// Updating the bottom panel with the new width and height values
-    void update () 
+    void update ()
     {
 	biego_width.setText (Integer.toString (Main.main.get_world ().get_biego ().get_width ()));
 	biego_height.setText (Integer.toString (Main.main.get_world ().get_biego ().get_height ()));

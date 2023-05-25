@@ -16,11 +16,11 @@
 //    along with this program; if not, write to the Free Software
 //    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
-import java.awt.*; 
+import java.awt.*;
 
 /** An animal which wants to eat the stachelophyte, but it can only do
     that if his neg is longer than the stachelophytes spikes */
-class Biegosaurus 
+class Biegosaurus
     extends Creature
 {
     Biegosaurus (int width, int height) {
@@ -33,14 +33,14 @@ class Biegosaurus
     {
 	Biegosaurus biego = new Biegosaurus (width, height);
 
-	if (Math.random () < 0.5) 
+	if (Math.random () < 0.5)
 	    biego.width += 1;
-	else 
+	else
 	    biego.width -= 1;
 
 	if (Math.random () < 0.5)
 	    biego.height += 1;
-	else 
+	else
 	    biego.height -= 1;
 
 	if (biego.width < 0)

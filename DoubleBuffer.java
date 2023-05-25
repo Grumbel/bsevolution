@@ -7,11 +7,11 @@ import java.awt.event.*;
 
  @author Stuart Reynolds ... 1999
  */
-public class DoubleBuffer 
+public class DoubleBuffer
     extends Canvas
 {
     private Image offscreen;
-    
+
     public DoubleBuffer()
     {
 	super();
@@ -68,7 +68,7 @@ public class DoubleBuffer
     {
 	if (offscreen==null)
 	    return;
-	
+
 	Graphics mygraphics = getGraphics();
 	if (mygraphics==null)
 	    return;

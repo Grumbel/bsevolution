@@ -16,14 +16,14 @@
 //    along with this program; if not, write to the Free Software
 //    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
-import java.awt.*; 
-import java.awt.event.*; 
+import java.awt.*;
+import java.awt.event.*;
 
 /** A simple message box, which can be used for error messages and
     warrnings */
 class MessageBox
     extends Frame
-    implements ActionListener 
+    implements ActionListener
 {
     Label error_msg;
     Button ok_button;
@@ -41,10 +41,10 @@ class MessageBox
 	setVisible (true);
     }
 
-    public void actionPerformed(ActionEvent e) 
+    public void actionPerformed(ActionEvent e)
     {
-	if (e.getActionCommand ().equals ("Ok")) 
-	    {	
+	if (e.getActionCommand ().equals ("Ok"))
+	    {
 		this.dispose ();
 	    }
     }

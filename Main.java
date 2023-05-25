@@ -18,7 +18,7 @@
 
 /** This class creates all the other classes and manages the main
     loop. */
-class Main 
+class Main
     extends Thread
 {
     private World world;
@@ -65,7 +65,7 @@ class Main
     }
 
     // The main loop
-    public void run () 
+    public void run ()
     {
 	running = false;
 	evo_steps = 0;
@@ -73,16 +73,16 @@ class Main
 	long start_time = 0;
 
 	// Main loop
-	while (true) 
+	while (true)
 	    {
 		if ((running && sleep_time == 0)
 		    || do_step)
 		    {
 			evo_steps++;
 			world.update ();
-		
+
 			refresh_counter++;
-			
+
 			main_window.update_value_display();
 			main_window.statgraph.update ();
 
@@ -103,7 +103,7 @@ class Main
 			    // wait()/notify() instead
 			    sleep (50);
 			}
-			catch (InterruptedException e) 
+			catch (InterruptedException e)
 			    {
 			    }
 		    }
@@ -113,16 +113,16 @@ class Main
 			   passed, if the sleep() is interrupted we calculate
 			   how long we have sleeped and cache that value for
 			   the next sleep call. */
-			try 
+			try
 			    {
 				start_time = System.currentTimeMillis();
-			
+
 				if (update_time - sleep_time > 0)
 				    sleep (update_time - sleep_time);
-			
+
 				sleep_time = 0;
-			    } 
-			catch (InterruptedException e) 
+			    }
+			catch (InterruptedException e)
 			    {
 				sleep_time = System.currentTimeMillis() - start_time + sleep_time;
 			    }
@@ -132,19 +132,19 @@ class Main
 
     public int get_refresh_rate () {
 	return refresh_rate;
-    } 
-    
+    }
+
     public void set_refresh_rate (int rrate) {
 	refresh_rate = rrate;
-    } 
+    }
 
     public int get_update_time () {
 	return update_time;
-    } 
+    }
 
     public void set_update_time (int u_time) {
 	update_time = u_time;
-    } 
+    }
 
     public World get_world () {
 	return world;
@@ -163,14 +163,14 @@ class Main
     }
 
     // Stop the main loop and wait for something happen
-    public void stop_world () 
+    public void stop_world ()
     {
 	update ();
 	running = false;
     }
 
     // Refresh the display, call this when you have changed values
-    public void redisplay () 
+    public void redisplay ()
     {
 	main_window.update_value_display();
 	main_window.statgraph.update ();
@@ -182,7 +182,7 @@ class Main
         update_time and refresh_rate, without the need to wait for the
         next loop cycle. Call this member once you have changed
         data. */
-    public void update () 
+    public void update ()
     {
 	main_window.refresh_rate_label.setText ("Wiederholfrequenz: 1/" + (Main.main.get_refresh_rate () + 1));
 	main_window.update_time_label.setText ("Zeit/Schritt: " + Main.main.get_update_time () + "msec");
@@ -196,7 +196,7 @@ class Main
 	    System.out.println (" -------- IllegalMonitorStateException caugt ---------");
 	}
     }
-    
+
     public void do_a_step () {
 	do_step = true;
     }

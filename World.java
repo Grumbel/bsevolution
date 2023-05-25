@@ -16,7 +16,7 @@
 //    along with this program; if not, write to the Free Software
 //    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
-import java.awt.*; 
+import java.awt.*;
 
 
 /** The world of one biegosaurus and one stachelophyte. The creatures
@@ -27,7 +27,7 @@ class World
     /** The maximal width + height of the stachelophyte, before the
 	punish value takes action */
     public int smax = 100;
-    
+
     /** The maximal width + height of the biegosaurus, before the
 	punish value takes action */
     public int bmax = 100;
@@ -43,11 +43,11 @@ class World
 	biego    = new Biegosaurus (50, 50);
 	stachelo = new Stachelophyte (50, 50);
     }
-    
+
     public Biegosaurus get_biego () {
 	return biego;
     }
-    
+
     public Stachelophyte get_stachelo () {
 	return stachelo;
     }
@@ -57,11 +57,11 @@ class World
     }
 
     /// Process one step of the evolution process
-    public void update () 
+    public void update ()
     {
 	Biegosaurus biego2 = (Biegosaurus)biego.breed ();
 	Biegosaurus biego3 = (Biegosaurus)biego.breed ();
-	
+
 	Stachelophyte stachelo2 = (Stachelophyte)stachelo.breed ();
 	Stachelophyte stachelo3 = (Stachelophyte)stachelo.breed ();
 
@@ -76,40 +76,40 @@ class World
 	else
 	    stachelo_eaten = false;
     }
-    
+
     /** Select the best out of three biegosaurus */
     private Biegosaurus select (Biegosaurus biego1,
 				 Biegosaurus biego2,
 				 Biegosaurus biego3)
     {
 	Biegosaurus best_biego;
-	
+
 	if (biego_abstand (stachelo, biego1) < biego_abstand (stachelo, biego2))
 	    best_biego = biego1;
 	else
 	    best_biego = biego2;
-	
+
 	if (biego_abstand (stachelo, biego3) < biego_abstand (stachelo, best_biego))
 	    best_biego = biego3;
-	
+
 	return best_biego;
     }
 
     /** Select the best out of three stachelophytes */
-    private Stachelophyte select (Stachelophyte stachelo1, 
-				  Stachelophyte stachelo2, 
+    private Stachelophyte select (Stachelophyte stachelo1,
+				  Stachelophyte stachelo2,
 				  Stachelophyte stachelo3)
     {
 	Stachelophyte best_stachelo;
-	
+
 	if (stachelo_abstand (stachelo1, biego) > stachelo_abstand (stachelo2, biego))
 	    best_stachelo = stachelo1;
 	else
 	    best_stachelo = stachelo2;
-	
+
 	if (stachelo_abstand (stachelo3, biego) > stachelo_abstand (best_stachelo, biego))
 	    best_stachelo = stachelo3;
-	
+
 	return best_stachelo;
     }
 
@@ -129,12 +129,12 @@ class World
 	    }
 
 	if (biego.get_width () <  stachelo.get_width ()) {
-	    abstand = 
-		(stachelo.get_width () - biego.get_width ()) * (stachelo.get_width () - biego.get_width ()) 
-		+ (stachelo.get_height () - biego.get_height ()) * (stachelo.get_height () - biego.get_height ()) 
+	    abstand =
+		(stachelo.get_width () - biego.get_width ()) * (stachelo.get_width () - biego.get_width ())
+		+ (stachelo.get_height () - biego.get_height ()) * (stachelo.get_height () - biego.get_height ())
 		+ strafe;
 	} else {
-	    abstand = (stachelo.get_height () - biego.get_height ()) 
+	    abstand = (stachelo.get_height () - biego.get_height ())
 		*  (stachelo.get_height () - biego.get_height ()) + strafe;
 	}
 
@@ -149,7 +149,7 @@ class World
 	int abstand;
 	int strafe = 0;
 
-	if ((stachelo.get_width () + stachelo.get_height ()) > smax 
+	if ((stachelo.get_width () + stachelo.get_height ()) > smax
 	    || stachelo.get_width () <= 0
 	    || stachelo.get_height () <= 0)
 	    {
@@ -157,12 +157,12 @@ class World
 	    }
 
 	if (biego.get_width () <  stachelo.get_width ()) {
-	    abstand = 
-		(stachelo.get_width () - biego.get_width ()) * (stachelo.get_width () - biego.get_width ()) 
-		+ (stachelo.get_height () - biego.get_height ()) * (stachelo.get_height () - biego.get_height ()) 
+	    abstand =
+		(stachelo.get_width () - biego.get_width ()) * (stachelo.get_width () - biego.get_width ())
+		+ (stachelo.get_height () - biego.get_height ()) * (stachelo.get_height () - biego.get_height ())
 		+ strafe;
 	} else {
-	    abstand = (stachelo.get_height () - biego.get_height ()) 
+	    abstand = (stachelo.get_height () - biego.get_height ())
 		*  (stachelo.get_height () - biego.get_height ()) + strafe;
 	}
 
@@ -176,7 +176,7 @@ class World
 	biego.paint (canvas);
 	stachelo.paint (canvas);
     }
-    
+
     /** Print the values of the biego and the stachelo, for debugging
         only */
     public void print () {

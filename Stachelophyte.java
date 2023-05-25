@@ -16,11 +16,11 @@
 //    along with this program; if not, write to the Free Software
 //    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
-import java.awt.*; 
+import java.awt.*;
 
 /** The stachelophyte is a plant, which has long spikes to protect
     itself from the biegosaurus. */
-public class Stachelophyte 
+public class Stachelophyte
     extends Creature
 {
     /// Construct a stachelophyte with the given width and heigth
@@ -28,19 +28,19 @@ public class Stachelophyte
     {
 	super(width, height);
     }
-    
+
     public Creature breed ()
     {
 	Stachelophyte stachelo = new Stachelophyte (width, height);
 
-	if (Math.random () < 0.5) 
+	if (Math.random () < 0.5)
 	    stachelo.width += 1;
-	else 
+	else
 	    stachelo.width -= 1;
 
-	if (Math.random () < 0.5) 
+	if (Math.random () < 0.5)
 	    stachelo.height += 1;
-	else 
+	else
 	    stachelo.height -= 1;
 
 	if (stachelo.width < 0)
@@ -56,7 +56,7 @@ public class Stachelophyte
 	canvas.drawLine(10, 290, 10, 290 - height);
 	canvas.drawLine(10, 290, 10 + width, 290);
     }
-    
+
     public String toString () {
 	return "Stachelophyte: width = " + width + " height = " + height;
     }

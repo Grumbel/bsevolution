@@ -16,22 +16,22 @@
 //    along with this program; if not, write to the Free Software
 //    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
-import java.awt.*; 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
 /** This class provides a double buffered canvas, so you get more
     flicker free animations, than with a normal Canvas. It works by
     drawing all the images to a buffer first and than blit that buffer
-    all at once. 
+    all at once.
 
     Warrning: This class might not work very good in every situation
 */
-abstract class DoubleBufferedCanvas 
+abstract class DoubleBufferedCanvas
     extends Canvas
 {
-    /// The offscreen image buffer 
+    /// The offscreen image buffer
     private Image buffered_image;
-    
+
     public DoubleBufferedCanvas () {
 	super ();
 	System.out.println ("-----------------!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
@@ -49,13 +49,13 @@ abstract class DoubleBufferedCanvas
 	super.setSize (w, h);
 	//System.out.println ("Buffered Image: " + buffered_image);
     }
-    
+
     public void update (Graphics canvas)
     {
 	paint (canvas);
     }
 
-    public void paint (Graphics canvas) 
+    public void paint (Graphics canvas)
     {
 	if (buffered_image != null)
 	    {
@@ -63,7 +63,7 @@ abstract class DoubleBufferedCanvas
 		canvas.drawImage (buffered_image, 0, 0, null);
 	    }
     }
-    
+
     public boolean isDoubleBuffered() {
 	return true;
     }

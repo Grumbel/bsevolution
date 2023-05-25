@@ -16,17 +16,17 @@
 //    along with this program; if not, write to the Free Software
 //    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
-import java.awt.*; 
-import java.awt.event.*; 
+import java.awt.*;
+import java.awt.event.*;
 
-class ConfigDialog 
+class ConfigDialog
     extends Frame
     implements ActionListener,
 	       WindowListener
 {
     private Label     biego_max_label;
     private TextField biego_max_field;
-    
+
     private Label     biego_start_width_label;
     private TextField biego_start_width_field;
 
@@ -41,14 +41,14 @@ class ConfigDialog
 
     private Label     stachelo_start_height_label;
     private TextField stachelo_start_height_field;
-    
+
     private Panel biego_panel;
     private Panel stego_panel;
 
     private Button ok_button;
     private Button cancel_button;
-    
-    public ConfigDialog () 
+
+    public ConfigDialog ()
     {
 	addWindowListener(this);
 	setLayout(new BorderLayout ());
@@ -57,7 +57,7 @@ class ConfigDialog
 	setTitle ("BSEvolution - Startwerte");
 
 	Panel panel = new Panel ();
-		
+
 	add (panel, BorderLayout.NORTH);
 
 	Label biego_label = new Label ("..::Biegosaurus ::..", Label.CENTER);
@@ -72,7 +72,7 @@ class ConfigDialog
 	biego_start_width_label = new Label ("Breite: ");
 	biego_start_width_field = new TextField ("100");
 
-	biego_start_height_label = new Label ("Höhe: "); 
+	biego_start_height_label = new Label ("Höhe: ");
 	biego_start_height_field = new TextField ("100");
 
 	stachelo_max_field = new TextField ("100");
@@ -81,7 +81,7 @@ class ConfigDialog
 	stachelo_start_width_label = new Label ("Breite: ");
 	stachelo_start_width_field = new TextField ("100");
 
-	stachelo_start_height_label = new Label ("Höhe: "); 
+	stachelo_start_height_label = new Label ("Höhe: ");
 	stachelo_start_height_field = new TextField ("100");
 
 	GridBagLayout gridbag = new GridBagLayout();
@@ -173,7 +173,7 @@ class ConfigDialog
     public void setVisible (boolean visible)
     {
 	if (visible)
-	    get_config ();	
+	    get_config ();
 	super.setVisible (visible);
     }
 
@@ -209,7 +209,7 @@ class ConfigDialog
 	} catch (NumberFormatException e) {
 	    new MessageBox ("Fehler: Biegosaurier: Höhe muss eine Zahl sein");
 	}
-	
+
 	try {
 	    int biego_max = Integer.parseInt (biego_max_field.getText ());
 	    if (biego_max >= 0)
@@ -239,7 +239,7 @@ class ConfigDialog
 	} catch (NumberFormatException e) {
 	    new MessageBox ("Fehler: Stachelophyte: Höhe muss eine Zahl sein");
 	}
-	
+
 	try {
 	    int stachelo_max = Integer.parseInt (stachelo_max_field.getText ());
 	    if (stachelo_max >= 0)
@@ -253,47 +253,47 @@ class ConfigDialog
 	Main.main.set_evo_steps (0);
     }
 
-    public void actionPerformed(ActionEvent e) 
+    public void actionPerformed(ActionEvent e)
     {
-	if (e.getActionCommand ().equals ("Ok")) 
-	    {	
+	if (e.getActionCommand ().equals ("Ok"))
+	    {
 		Main.main.config_dialog.setVisible (false);
 		set_config ();
 		Main.main.redisplay ();
 	    }
 	else if (e.getActionCommand ().equals ("Abbrechen"))
 	    {
-		Main.main.config_dialog.setVisible (false);		
+		Main.main.config_dialog.setVisible (false);
 	    }
     }
 
     public void windowActivated(WindowEvent e)
     {
     }
-    
+
     public void windowClosed(WindowEvent e)
     {
 	//System.out.println ("window ... closed");
     }
-    
+
     public void windowClosing(WindowEvent e)
     {
 	setVisible (false);
     }
-    
+
     public void windowDeactivated(WindowEvent e)
     {
     }
-    
+
     public void windowDeiconified(WindowEvent e)
     {
     }
-    
+
     public void windowIconified(WindowEvent e)
     {
     }
-    
-    public void windowOpened(WindowEvent e) 
+
+    public void windowOpened(WindowEvent e)
     {
 	//System.out.println ("window ... opened");
     }

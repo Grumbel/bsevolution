@@ -16,8 +16,8 @@
 //    along with this program; if not, write to the Free Software
 //    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
-import java.awt.*; 
-import java.awt.event.*; 
+import java.awt.*;
+import java.awt.event.*;
 import java.util.Vector;
 
 /** Display a simple graph which shows the width and height progress
@@ -66,18 +66,18 @@ class StatGraph
     public void windowDeiconified(WindowEvent e)
     {
     }
-    
+
     public void windowIconified(WindowEvent e)
     {
     }
-    
-    public void windowOpened(WindowEvent e) 
+
+    public void windowOpened(WindowEvent e)
     {
     }
 }
 
 /** This is the canvas on which the progress graph is drawn */
-class StatGraphCanvas 
+class StatGraphCanvas
     extends DoubleBufferedCanvas
 {
     Vector biego_widths;
@@ -86,7 +86,7 @@ class StatGraphCanvas
     Vector stachelo_heights;
     int steps;
     int max_size;
-    
+
     int repaint_steps;
     int refresh_rate;
 
@@ -114,15 +114,15 @@ class StatGraphCanvas
 
 	if (color != null)
 	    canvas.setColor (color);
-	
+
 	for (int i=1; i < vector.size (); i++)
 	    canvas.drawLine (i - 1,
-			     ((Integer)vector.elementAt (i-1)).intValue () * height / scale, 
+			     ((Integer)vector.elementAt (i-1)).intValue () * height / scale,
 			     i,
 			     ((Integer)vector.elementAt (i)).intValue () * height / scale);
     }
 
-    public void buffered_paint (Graphics canvas) 
+    public void buffered_paint (Graphics canvas)
     {
 	canvas.setColor (new Color (0.0f, 0.0f, 0.0f));
 	canvas.fillRect (0, 0, width, height);
@@ -132,7 +132,7 @@ class StatGraphCanvas
 	draw_vector (canvas, Main.main.get_world ().get_smax (), stachelo_widths, new Color (1.0f, 1.0f, 1.0f));
 	draw_vector (canvas, Main.main.get_world ().get_smax (), stachelo_heights, new Color (0.0f, 1.0f, 0.0f));
     }
-    
+
     public void update ()
     {
 	// when the graph window is full, we reset it and start from
