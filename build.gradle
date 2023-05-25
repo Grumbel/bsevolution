@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    jcenter()
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/']
+        }
+    }
+}
+
+jar {
+    archivesBaseName = 'bsevolution'
+
+    manifest {
+        attributes 'Main-Class': 'Main'
+    }
+
+    from('images') {
+        include '**'
+        into('data')
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}

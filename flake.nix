@@ -19,10 +19,19 @@
             src = ./.;
 
             buildPhase = ''
+              gradle jar
             '';
 
             installPhase = ''
+              mkdir -p $out/bin $out/lib/
+              cp -vi build/libs/bsevolution.jar $out/lib/
+              echo -e "#!/bin/sh\nexec ${pkgs.jre}/bin/java -jar $out/lib/bsevolution.jar" > $out/bin/bsevolution
+              chmod +x $out/bin/bsevolution
             '';
+
+            nativeBuildInputs = with pkgs; [
+              gradle
+            ];
 
             buildInputs = with pkgs; [
               openjdk
