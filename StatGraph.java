@@ -32,7 +32,7 @@ class StatGraph
     StatGraph ()
     {
 	addWindowListener (this);
-	setTitle ("BSEvolution - Hóhe/Breite Graph");
+	setTitle ("BSEvolution - HÃ¶he/Breite Graph");
 	canvas = new StatGraphCanvas (max_size, 100);
 	setSize (max_size, 100);
 	add (canvas);

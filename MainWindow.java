@@ -74,7 +74,7 @@ class MainWindow
 	    Main.main.update ();
 	} else if (e.getActionCommand ().equals ("Start")) {
 	    //System.out.println ("Start");
-	    //status.setText ("Status: l‰uft");
+	    //status.setText ("Status: l√§uft");
 	    startstop_button.setLabel ("Stop");
 	    Main.main.start_world ();
 	} else if (e.getActionCommand ().equals ("Stop")) {
@@ -456,13 +456,13 @@ class ValueDisplay
 
     ValueDisplay () 
     {
-	label = new Label ("Maﬂe\\Art",  Label.CENTER);
+	label = new Label ("Ma√üe\\Art",  Label.CENTER);
 	biego    = new Label ("Biego",  Label.CENTER);
 	stachelo = new Label ("Stachelo",  Label.CENTER);
-	height   = new Label ("Hˆhe",  Label.CENTER);
+	height   = new Label ("H√∂he",  Label.CENTER);
 	width    = new Label ("Breite",  Label.CENTER);
 	//distance = = new Label ("Abstand",  Label.CENTER);
-	max = new Label ("Max. Grˆﬂe",  Label.CENTER);
+	max = new Label ("Max. Gr√∂√üe",  Label.CENTER);
 
 	biego_width  = new Label (Integer.toString (Main.main.get_world().get_biego ().get_width()),  Label.CENTER);
 	biego_height = new Label (Integer.toString (Main.main.get_world().get_biego ().get_height()),  Label.CENTER);

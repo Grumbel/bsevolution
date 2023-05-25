@@ -67,21 +67,21 @@ class ConfigDialog
 	stachelo_label.setBackground (new Color (0.7f, 0.7f, 0.7f));
 
 	biego_max_field = new TextField ("100");
-	biego_max_label = new Label ("Maximal Größe: ");
+	biego_max_label = new Label ("Maximal GrÃ¶ÃŸe: ");
 
 	biego_start_width_label = new Label ("Breite: ");
 	biego_start_width_field = new TextField ("100");
 
-	biego_start_height_label = new Label ("Hóhe: "); 
+	biego_start_height_label = new Label ("HÃ¶he: "); 
 	biego_start_height_field = new TextField ("100");
 
 	stachelo_max_field = new TextField ("100");
-	stachelo_max_label = new Label ("Maximal Größe: ");
+	stachelo_max_label = new Label ("Maximal GrÃ¶ÃŸe: ");
 
 	stachelo_start_width_label = new Label ("Breite: ");
 	stachelo_start_width_field = new TextField ("100");
 
-	stachelo_start_height_label = new Label ("Höhe: "); 
+	stachelo_start_height_label = new Label ("HÃ¶he: "); 
 	stachelo_start_height_field = new TextField ("100");
 
 	GridBagLayout gridbag = new GridBagLayout();
@@ -205,9 +205,9 @@ class ConfigDialog
 	    if (biego_start_height >= 0)
 		Main.main.get_world ().get_biego ().set_height (biego_start_height);
 	    else
-		new MessageBox ("Fehler: Biegosaurier: Höhe muss positiv sein");
+		new MessageBox ("Fehler: Biegosaurier: HÃ¶he muss positiv sein");
 	} catch (NumberFormatException e) {
-	    new MessageBox ("Fehler: Biegosaurier: Höhe muss eine Zahl sein");
+	    new MessageBox ("Fehler: Biegosaurier: HÃ¶he muss eine Zahl sein");
 	}
 	
 	try {
@@ -215,9 +215,9 @@ class ConfigDialog
 	    if (biego_max >= 0)
 		Main.main.get_world ().set_bmax (biego_max);
 	    else
-		new MessageBox ("Fehler: Biegosaurier: Maximale Größe muss positiv sein");
+		new MessageBox ("Fehler: Biegosaurier: Maximale GrÃ¶ÃŸe muss positiv sein");
 	} catch (NumberFormatException e) {
-	    new MessageBox ("Fehler: Biegosaurier: Maximale Größe muss eine Zahl sein");
+	    new MessageBox ("Fehler: Biegosaurier: Maximale GrÃ¶ÃŸe muss eine Zahl sein");
 	}
 
 	try {
@@ -235,9 +235,9 @@ class ConfigDialog
 	    if (stachelo_start_height >= 0)
 		Main.main.get_world ().get_stachelo ().set_height (stachelo_start_height);
 	    else
-		new MessageBox ("Fehler: Stachelophyte: Höhe muss positiv sein");
+		new MessageBox ("Fehler: Stachelophyte: HÃ¶he muss positiv sein");
 	} catch (NumberFormatException e) {
-	    new MessageBox ("Fehler: Stachelophyte: Höhe muss eine Zahl sein");
+	    new MessageBox ("Fehler: Stachelophyte: HÃ¶he muss eine Zahl sein");
 	}
 	
 	try {
@@ -245,9 +245,9 @@ class ConfigDialog
 	    if (stachelo_max >= 0)
 		Main.main.get_world ().set_smax(stachelo_max);
 	    else
-		new MessageBox ("Fehler: Stachelophyte: Maximale Größe muss positiv sein");
+		new MessageBox ("Fehler: Stachelophyte: Maximale GrÃ¶ÃŸe muss positiv sein");
 	} catch (NumberFormatException e) {
-	    new MessageBox ("Fehler: Stachelophyte: Maximale Größe muss eine Zahl sein");
+	    new MessageBox ("Fehler: Stachelophyte: Maximale GrÃ¶ÃŸe muss eine Zahl sein");
 	}
 
 	Main.main.set_evo_steps (0);
