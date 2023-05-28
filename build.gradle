@@ -22,8 +22,8 @@ jar {
     }
 
     from('images') {
-        include '**'
-        into('data')
+        include '**.gif'
+        into('data/images')
     }
 }
 

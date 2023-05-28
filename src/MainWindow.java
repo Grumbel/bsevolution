@@ -16,6 +16,7 @@
 //    along with this program; if not, write to the Free Software
 //    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
+import java.net.URL;
 import java.awt.*;
 import java.awt.color.*;
 import java.awt.event.*;
@@ -261,25 +262,32 @@ class WorldDisplay
 
     Image background;
 
+  public Image createImage(String name)
+  {
+    Toolkit toolkit = Toolkit.getDefaultToolkit();
+    URL url = getClass().getResource("/data/" + name);
+    return toolkit.createImage(url);
+  }
+
     public WorldDisplay (int w, int h)
     {
 	super (w, h);
-	hals_v      = Toolkit.getDefaultToolkit().createImage ("images/hals_v.gif");
-	hals_h      = Toolkit.getDefaultToolkit().createImage ("images/hals_h.gif");
-	kopf        = Toolkit.getDefaultToolkit().createImage ("images/kopf.gif");
-	kopfeat        = Toolkit.getDefaultToolkit().createImage ("images/kopfeat.gif");
-	baum        = Toolkit.getDefaultToolkit().createImage ("images/baum.gif");
-	green       = Toolkit.getDefaultToolkit().createImage ("images/green.gif");
-	greeneat    = Toolkit.getDefaultToolkit().createImage ("images/greeneat.gif");
-	stacheln    = Toolkit.getDefaultToolkit().createImage ("images/stacheln.gif");
-	stachelo_shadow = Toolkit.getDefaultToolkit().createImage ("images/stacheloshadow.gif");
-	winkel      = Toolkit.getDefaultToolkit().createImage ("images/winkel.gif");
-	biego       = Toolkit.getDefaultToolkit().createImage ("images/biego.gif");
-	schwanz     = Toolkit.getDefaultToolkit().createImage ("images/schwanz.gif");
-	schwanzende = Toolkit.getDefaultToolkit().createImage ("images/schwanzende.gif");
-	biego       = Toolkit.getDefaultToolkit().createImage ("images/biego.gif");
-	biego_shadow = Toolkit.getDefaultToolkit().createImage ("images/biegoshadow.gif");
-	background  = Toolkit.getDefaultToolkit().createImage ("images/background.gif");
+	hals_v = createImage("images/hals_v.gif");
+	hals_h = createImage("images/hals_h.gif");
+	kopf = createImage("images/kopf.gif");
+	kopfeat = createImage("images/kopfeat.gif");
+	baum = createImage("images/baum.gif");
+	green = createImage("images/green.gif");
+	greeneat = createImage("images/greeneat.gif");
+	stacheln = createImage("images/stacheln.gif");
+	stachelo_shadow = createImage("images/stacheloshadow.gif");
+	winkel = createImage("images/winkel.gif");
+	biego = createImage("images/biego.gif");
+	schwanz = createImage("images/schwanz.gif");
+	schwanzende = createImage("images/schwanzende.gif");
+	biego = createImage("images/biego.gif");
+	biego_shadow = createImage("images/biegoshadow.gif");
+	background = createImage("images/background.gif");
 
 	this.prepareImage(hals_v, this);
 	this.prepareImage(hals_h, this);
